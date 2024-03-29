@@ -24,13 +24,13 @@
 		],
 		"all_frames": true,
 		"js": ["content_script.js"],
-		//"css": ["Netflix.css"],
+		"css": ["Netflix.css"],
 		"run_at": "document_start"
 	}],
 	"web_accessible_resources": [{
         "resources": [
 			"netflix_max_bitrate.js",
-			"cadmium-playercore.js"
+		        "cadmium-playercore.js"
         ],
 		"matches": [
 			"*://netflix.com/*",
