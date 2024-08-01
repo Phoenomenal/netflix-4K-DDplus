@@ -19,12 +19,14 @@
 		"matches": [
 			"*://assets.nflxext.com/*/ffe/player/html/*",
 			"*://www.assets.nflxext.com/*/ffe/player/html/*",
+			"*://assets.nflxext.com/player/html/ffe/*",
+			"*://www.assets.nflxext.com/player/html/ffe/*",
 			"*://netflix.com/*",
 			"*://www.netflix.com/*"
 		],
 		"all_frames": true,
 		"js": ["content_script.js"],
-		"css": ["Netflix.css"],
+		//"css": ["Netflix.css"],
 		"run_at": "document_start"
 	}],
 	"web_accessible_resources": [{
