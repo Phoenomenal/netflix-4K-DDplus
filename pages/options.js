@@ -1,4 +1,4 @@
-const checkboxIds = ['useallSub', 'useddplus', 'useAVC', 'useFHD', 'usedef', 'useHA', 'useAVCH', 'usevp9', 'useav1', 'useprk', 'usehevc', 'usef4k', 'usef12k', 'closeimsc', 'useimscn', 'imdef', 'usesl', 'useb', 'setMaxBitrate'];
+const checkboxIds = ['useallSub', 'useddplus', 'useAVC', 'useFHD', 'usedef', 'useHA', 'useAVCH', 'usevp9', 'useav1', 'useprk', 'usehevc', 'usef4k', 'usef12k', 'closeimsc', 'useimscn', 'setMaxBitrate'];
 
 function getCheckbox(id) {
     return document.getElementById(id);
@@ -28,16 +28,24 @@ function updateRelatedCheckboxes(checkboxId) {
     } else if (checkboxId === 'closeimsc') {
         const closeimscCheckbox = getCheckbox('closeimsc');
         updateCheckboxState(getCheckbox('closeimsc'), getCheckbox('useimscn'), true);
-        const imageSubFieldset = document.getElementById('imageSubFieldset');
-        imageSubFieldset.disabled = !closeimscCheckbox.checked;
+        //const imageSubFieldset = document.getElementById('imageSubFieldset');
+        //imageSubFieldset.disabled = !closeimscCheckbox.checked;
     }
     // more
 }
 
 function save_options() {
     const options = {};
-    checkboxIds.forEach(id => {
-        options[id] = getCheckboxState(id);
+    //checkboxIds.forEach(id => {
+   //     options[id] = getCheckboxState(id);
+   // });
+
+    checkboxIds.forEach((id) => {
+        try {
+            options[id] = getCheckboxState(id);
+        } catch (error) {
+            console.error(`Error getting state for checkbox with ID: ${id}`, error);
+        }
     });
 
     chrome.storage.sync.set(options, () => {
